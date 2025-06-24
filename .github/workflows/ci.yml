@@ -4,7 +4,7 @@ on:
     branches:
     - main
 jobs:
-  buid-and-push-image:
+  buid-and-push:
     runs-on: windows-latest
     steps:
     - name: Checkout code
@@ -14,11 +14,11 @@ jobs:
         Write-Host "Launching Cosmos DB Emulator"
         Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
         Start-CosmosDbEmulator
-    - run: npm install
-    - run: node app.js 
+    - name: Install dependencies
+      run: npm ci
+    - name: Run app
+      run: node app.js 
     - name: Stop Azure Cosmos DB Emulator
       run: |
         Write-Host "Stopping Cosmos DB Emulator"
         Stop-Process -Name "CosmosDB.Emulator" -Force
-
-        
