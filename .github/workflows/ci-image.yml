@@ -19,5 +19,6 @@ jobs:
     - name: Stop Azure Cosmos DB Emulator
       run: |
         Write-Host "Stopping Cosmos DB Emulator"
-        Stop-CosmosDbEmulator
+        Stop-Process -Name "CosmosDB.Emulator" -Force
+
         
