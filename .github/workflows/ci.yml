@@ -15,9 +15,5 @@ jobs:
         Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
         Start-CosmosDbEmulator
         Start-Sleep -Seconds 10 # Wait for the emulator to start
-    - name: Stop Azure Cosmos DB Emulator
-      run: |
-        Write-Host "Stopping Cosmos DB Emulator"
-        Stop-CosmosDbEmulator
-  
+   
         
