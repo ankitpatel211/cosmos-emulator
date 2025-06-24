@@ -13,10 +13,10 @@ const { container } = await database.containers.createIfNotExists({
   partitionKey: { kind: "Hash", paths: ["/id"] }
 });
 const item = {
-  id: "2",
-  name: "Guitar",
+  id: "4",
+  name: "Violin",
   price: 1500,
-  description: "A high-quality acoustic guitar",
+  description: "A high-quality violin suitable for both beginners and professionals.",
   category: "Musical Instruments",
 };  
 await container.items.upsert(item);
